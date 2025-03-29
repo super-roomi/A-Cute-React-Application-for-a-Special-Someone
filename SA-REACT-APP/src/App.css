@@ -9,6 +9,7 @@
   --accent-color: #ec4899;
   --border-color: #e5e7eb;
   --font-family: 'Patrick Hand', cursive;
+  --bg-picture:'url(https://i.pinimg.com/736x/89/c9/e9/89c9e9103c058ac6cd970a9a17039a6a.jpg)'
 }
 
 
@@ -20,11 +21,36 @@
   --font-family: 'Patrick Hand', cursive;
 }
 
+:root {
+  --background-image: url('/default-bg.jpg');
+  --background-color: #ffffff;
+  --background-overlay: none;
+}
+
+
+
 /* Base Styles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: var(--background-overlay), var(--background-image);
+  background-color: var(--background-color);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: all 0.5s ease;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-family);
+  
   overflow-x: hidden;
   transition: all 0.3s ease;
 }
